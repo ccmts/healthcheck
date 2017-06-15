@@ -1,6 +1,6 @@
 FROM alpine:3.3
 
-ENTRYPOINT ["/tricorder-jobs/tric_job_healthcheck/podStatus.sh"]
+ENTRYPOINT ["podStatus.sh"]
 
 ENV KUBE_LATEST_VERSION="v1.5.4"
 
@@ -10,6 +10,6 @@ ENV KUBE_LATEST_VERSION="v1.5.4"
  && chmod +x /bin/kubectl \
  && apk add --update git \
  && git clone https://github.com/ccmts/healthcheck.git \
- && chmod 777 /tricorder-jobs/tric_job_healthcheck/podStatus.sh \
+ && chmod 777 podStatus.sh \
  && apk del --purge deps \
  && rm /var/cache/apk/* 
